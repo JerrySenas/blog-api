@@ -19,7 +19,7 @@ app.use("/posts", postRoutes);
 
 app.use(errorHandler);
 
-mongoose.connect("mongodb+srv://admin:admin123@b561-senas.8itpqdp.mongodb.net/BlogAPI?retryWrites=true&w=majority&appName=B561-Senas");
+mongoose.connect(process.env.MONGODB_STRING);
 mongoose.connection.once("open", () => console.log("Now connected to MongoDB Atlas."));
 
 if (esMain(import.meta)) {
