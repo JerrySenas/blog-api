@@ -12,7 +12,7 @@ export const addPost = (req, res, next) => {
   });
   return newPost.save()
     .then(result => {
-      return res.status(201).send(result);
+      return res.status(201).json({success: true, message: "Post added successfully.", result});
     })
     .catch(next);
 }

@@ -56,7 +56,7 @@ export const loginUser = (req, res, next) => {
 }
 
 export const getUserDetails = (req, res, next) => {
-  return User.findById(req.user.id, { password: 0, isAdmin: 0 })
+  return User.findById(req.user.id, { password: 0 })
     .then(user => {
       if (!user) {
         return next(createError("Auth failed. Invalid signature.", 403));
